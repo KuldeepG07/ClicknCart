@@ -1,0 +1,49 @@
+{% extends 'firstapp/basefile.html' %}
+{% load static %}
+
+{% block title %} Contact {% endblock title %}
+
+{% block main-content %}
+<div class="container mt-5">
+    <div class="text-center">
+        <h2 class="fw-bold">: Contact Us :</h2>
+    </div>
+    <div class="row mt-4">
+        <div class="text-center col-md-4">
+            <h4>Address</h4>
+            <p>Dharmsinh Desai University, Nadiad, Gujarat.</p>
+        </div>
+        <div class="text-center col-md-4">
+            <h4>Email</h4>
+            <p>clickncart2024@gmail.com</p>
+        </div>
+        <div class="text-center col-md-4">
+            <h4>Contact No.</h4>
+            <p>+91 9876512345</p>
+        </div>
+    </div>
+
+    <h2 class="text-center mt-4">Developer</h2>
+    <div class="row mt-4 developer-container" style="align-items: center; justify-content: space-evenly;">
+        <div class="col-md-4 developer-info">
+            <img src="{% static 'firstapp/images/c_logo.png' %}" class="img-fluid mb-5">
+            <h6>Developed By:</h6>
+            <h4 class="fw-bold text-dark mb-3">KG Creative</h4>
+            <p><i class="fas fa-envelope"></i>  k4gabani@gmail.com</p>
+        </div>
+        <div class="col-md-4 developer-card">
+            <div class="card shadow" style="align-items: center">
+                <img src="{% static 'firstapp/images/profile.png' %}" class="card-img-top mt-3">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold text-center">Kuldeep Gabani</h5>
+                    <p class="card-text text-center">Web Developer</p>
+                    <div style="text-align: center;">
+                        <a href="https://www.linkedin.com/in/kuldeep-gabani" target="_blank" class="btn btn-primary">LinkedIn</a>
+                        <a href="https://github.com/KuldeepG07" class="btn btn-danger" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}

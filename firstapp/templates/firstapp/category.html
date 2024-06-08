@@ -1,0 +1,40 @@
+{% extends 'firstapp/basefile.html' %}
+{% load static %}
+{% block title %} Category {% endblock title %}
+
+{% block main-content %}
+<div class="container my-5">
+    <!-- This is the code for list of items present in the current category -->
+    <!-- <div class="row">
+        <div class="col-sm-3">
+            <div class="list-group">
+                {% for value in title %}
+                
+                <a href="#" class="list-group-item list-group-item-action" aria-current="true">{{value.title}}</a>
+                {% endfor %}
+            </div>
+        </div> -->
+        <!-- in href of category title, put (url 'category-title' value.title) -->
+        <!-- sm-9  -->
+        <div class="col-sm-12">
+            <div class="row">
+                {% for p in product %}
+                <div class="col-sm-4 text-center mb-4">
+                    <a href="{% url 'product-details' p.id %}" class="btn">
+                        <div class="product-item">
+                            <img src="{{ p.product_image.url }}" alt="{{ p.title }}">
+                            <div class="title fw-bold">{{ p.title }}</div>
+                            <div class="price fw-bold text-dark">
+                                Rs. {{ p.discounted_price }}/-
+                                <small class="fw-light text-decoration-line-through">{{ p.selling_price }}</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+    <!-- </div> -->
+</div>
+{% endblock main-content %}

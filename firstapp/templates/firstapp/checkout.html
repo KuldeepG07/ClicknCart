@@ -1,0 +1,92 @@
+{% extends 'firstapp/basefile.html' %}
+{% load static %}
+{% block title %} Checkout {% endblock title %}
+
+{% block main-content %}
+<div class="container">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-danger" role="alert">
+        {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+<div class="row mt-5">
+    <div class="col-sm-5 offset-sm-1">
+        <h3>Order Summary</h3>
+        <hr>
+        {% for item in cart %}
+        <div class="card mb-2">
+            <div class="card-body">
+                <h5>Item : {{item.product.title}}</h5>
+                <p>Quantity : {{item.quantity}}</p>
+                <p class="fw-bold">Price : {{item.product.discounted_price}}</p>
+            </div>
+        </div>
+        {% endfor %}
+        <p class="fw-bold">Total Cost + Rs. 40.0 = {{totalamount}}</p>
+
+        <small>Terms and Conditions</small>
+    </div>
+    <div class="col-sm-4 offset-sm-1">
+        <h3>Shipping Address</h3>
+        <hr>
+        <form method="post" id="checkout-form">
+            {% csrf_token %}
+            {% if add %}
+            {% for address in add %}
+            <div class="card">
+                <div class="card-body">
+                    <h5>{{address.name}}</h5>
+                    <p>Mobile : {{address.mobile}}</p>
+                    <p>{{address.locality}} {{address.city}} {{address.zipcode}}</p>
+                </div>
+            </div>
+            <div class="form-check mt-2 mb-5">
+                <input type="radio" class="form-check-input" name="custid" id="custadd{{forloop.counter}}"
+                    value="{{address.id}}">
+                <label for="custadd{{forloop.counter}}" class="form-check-label">
+                    Address : {{forloop.counter}}
+                </label>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>No Address found. Please add address in your profile.</p>
+            {% endif %}
+            <div class="form-check mb-3">
+                <label for="totalamount" class="form-label">Total Amount</label>
+                <input type="number" class="form-control" name="totamount" value="{{totalamount}}" readonly>
+            </div>
+            <div class="text-end">
+                <button id="placeorder" type="submit" class="btn btn-warning mt-3 px-5 fw-bold" {% if not add %}disabled{% endif %}>Confirm Order</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById("checkout-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        var form = this;
+        var formData = new FormData(form);
+
+        var addressSelected = document.querySelector('input[name="custid"]:checked');
+        if (!addressSelected) {
+            alert("You haven't selected any address or You have no address");
+            return;
+        }
+
+        fetch("{% url 'checkout' %}", {
+            method: "POST",
+            body: formData,
+            headers: {
+                "X-Requested-With": "XMLHttpRequest"
+            }
+        }).then(response => response.json()).then(data => {
+            alert(`Order ${data.order_id} placed successfully!`);
+            window.location.href = "{% url 'home' %}";
+        }).catch(error => console.error("Error:", error));
+    });
+</script>
+{% endblock main-content %}

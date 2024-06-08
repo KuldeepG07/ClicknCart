@@ -21,5 +21,24 @@ What about shopping for groceries online? How cool is that! This project brings 
 <h5>Order Status</h5>
 
 ![5](https://github.com/KuldeepG07/ClicknCart/assets/133863514/81e1343c-6dd3-4f62-8aff-20aae11d1088)
-
+<br>
 <h1>Key Features 🖥</h1>
+
+⭐<strong>User Authentication:</strong> Secure registration, login and profile management.
+<br>
+⭐<strong>Product Browsing:</strong> View detailed product information and search for products by category.
+<br>
+⭐<strong>Cart Management:</strong> Add, update, and remove products from the shopping cart.
+<br>
+⭐<strong>Wishlist:</strong> Add products to a wishlist for future purchases.
+<br>
+⭐<strong>Order Processing:</strong> Place orders, view order history, and track order status.
+<br>
+⭐<strong>Admin Panel:</strong> Manage products, categories, and user orders from the Django admin interface.
+<br>
+<br>
+<h1>Tech Stack ⚙</h1>
+
+⭐<strong>Frontend:</strong> HTML, CSS, Bootstrap <br>
+⭐<strong>Backend:</strong> Django, Python <br>
+⭐<strong>Database:</strong> SQLite(default) <br>

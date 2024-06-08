@@ -1,0 +1,1 @@
+This is a full-featured online grocery shopping platform built using Django. The application allows users to browse products, add items to their cart, manage their orders, and track the status of their deliveries. It includes user authentication, product management, cart functionality, order processing, and wishlist features.

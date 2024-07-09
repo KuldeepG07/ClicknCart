@@ -18,7 +18,7 @@ What about shopping for groceries online? How cool is that! This project brings 
 
 ![4](https://github.com/KuldeepG07/ClicknCart/assets/133863514/eef522c0-c4da-4a0d-a5dd-f8b1b091a995)
 
-<h5>Order Status</h5>
+<h3>Order Status</h3>
 
 ![5](https://github.com/KuldeepG07/ClicknCart/assets/133863514/81e1343c-6dd3-4f62-8aff-20aae11d1088)
 <br>
